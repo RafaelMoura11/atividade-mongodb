@@ -21,7 +21,9 @@ exports.getAllBooks = async (req, res) => {
 
 exports.getByAuthor = async (req, res) => {
   try {
-    const books = await Book.find({ autor: req.params.autor });
+    const books = await Book.find({
+      autor: { $regex: req.params.autor, $options: 'i' }
+    });
     res.json(books);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -30,7 +32,9 @@ exports.getByAuthor = async (req, res) => {
 
 exports.getByGenre = async (req, res) => {
   try {
-    const books = await Book.find({ genero: req.params.genero });
+    const books = await Book.find({
+      genero: { $regex: req.params.genero, $options: 'i' }
+    });
     res.json(books);
   } catch (error) {
     res.status(500).json({ error: error.message });
