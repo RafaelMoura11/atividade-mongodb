@@ -10,6 +10,15 @@ exports.createBook = async (req, res) => {
   }
 };
 
+exports.getAllBooks = async (req, res) => {
+  try {
+    const books = await Book.find().sort({ titulo: 1 });
+    res.json(books);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 exports.getByAuthor = async (req, res) => {
   try {
     const books = await Book.find({ autor: req.params.autor });
