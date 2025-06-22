@@ -10,6 +10,8 @@ router.get('/ano/:ano', bookController.getByYear);
 router.get('/mais-paginas', bookController.getTopPages);
 router.get('/menos-paginas', bookController.getLeastPages);
 router.get('/isbn/:isbn', bookController.getByISBN);
+router.put('/:id', bookController.updateBook);
+router.delete('/:id', bookController.deleteBook);
 
 
 module.exports = router;
