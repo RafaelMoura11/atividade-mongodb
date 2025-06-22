@@ -74,8 +74,19 @@ const BookList = () => {
             onChange={(e) => setFilter(e.target.value)}
           />
         </div>
-        <div className="col-md-3">
-          <button className="btn btn-secondary w-100" type="submit">Buscar</button>
+        <div className="col-md-3 d-flex gap-2">
+            <button className="btn btn-secondary w-100" type="submit">Buscar</button>
+            <button
+                type="button"
+                className="btn btn-outline-secondary"
+                title="Limpar filtros"
+                onClick={() => {
+                setFilter('');
+                fetchBooks();
+                }}
+            >
+                Limpar
+            </button>
         </div>
       </form>
 
