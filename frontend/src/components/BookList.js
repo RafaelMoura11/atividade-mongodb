@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import API from '../api';
-import { FaTrash, FaEdit } from 'react-icons/fa';
+import { FaTrash, FaEdit, FaSortAmountDownAlt, FaSortAmountUpAlt } from 'react-icons/fa';
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
@@ -40,6 +40,16 @@ const BookList = () => {
     }
   };
 
+  const getMaisPaginas = async () => {
+    const res = await API.get('/mais-paginas');
+    setBooks(res.data);
+  };
+
+  const getMenosPaginas = async () => {
+    const res = await API.get('/menos-paginas');
+    setBooks(res.data);
+  };
+
   useEffect(() => {
     fetchBooks();
   }, []);
@@ -70,7 +80,20 @@ const BookList = () => {
       </form>
 
       <div className="bg-light p-3 rounded shadow-sm">
-        <h2 className="mb-3">Lista de Livros</h2>
+        <div className="d-flex justify-content-between align-items-center mb-3">
+          <h2>Lista de Livros</h2>
+          <div className="btn-group">
+            <button className="btn btn-outline-dark" onClick={getMaisPaginas} title="Mais páginas">
+              <FaSortAmountDownAlt className="me-2" />
+              Mais páginas
+            </button>
+            <button className="btn btn-outline-dark" onClick={getMenosPaginas} title="Menos páginas">
+              <FaSortAmountUpAlt className="me-2" />
+              Menos páginas
+            </button>
+          </div>
+        </div>
+
         <table className="table table-striped table-hover">
           <thead className="table-dark">
             <tr>
