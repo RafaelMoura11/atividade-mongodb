@@ -19,6 +19,16 @@ exports.getAllBooks = async (req, res) => {
   }
 };
 
+exports.getById = async (req, res) => {
+  try {
+    const book = await Book.findById(req.params.id);
+    if (!book) return res.status(404).json({ error: 'Livro não encontrado' });
+    res.json(book);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 exports.getByAuthor = async (req, res) => {
   try {
     const books = await Book.find({
