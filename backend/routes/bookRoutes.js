@@ -3,6 +3,7 @@ const router = express.Router();
 const bookController = require('../controllers/bookController');
 
 router.post('/', bookController.createBook);
+router.get('/', bookController.getAllBooks);
 router.get('/autor/:autor', bookController.getByAuthor);
 router.get('/genero/:genero', bookController.getByGenre);
 router.get('/ano/:ano', bookController.getByYear);
