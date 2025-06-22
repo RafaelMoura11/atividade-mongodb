@@ -30,7 +30,7 @@ atividade-mongodb/
 - Express.js (Node.js)
 - React.js (frontend)
 - Bootstrap (estilização)
-- Docker + Docker Compose
+- Docker ou Docker Compose
 
 ---
 
@@ -67,6 +67,7 @@ atividade-mongodb/
 ### Pré-requisitos
 
 - Docker
+- Node/NPM
 - Docker Compose
 
 ### Subindo o projeto:
