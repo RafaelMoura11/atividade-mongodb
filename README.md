@@ -1,6 +1,6 @@
 # 📚 Atividade MongoDB
 
-Este projeto fullstack utiliza **MongoDB**, **Node.js (Express)** e **React (Bootstrap)** para realizar operações CRUD em um banco de dados de livros.
+Este projeto fullstack utiliza **MongoDB**, **Node.js (Express)** e **React (Bootstrap)** para realizar operações CRUD em um banco de dados de livros
 
 ---
 
